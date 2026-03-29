@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FaithFlow Reader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/reader.css">
+</head>
+<body>
+  <header class="site-header glass container">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Faith<span class="highlight">Flow</span></a>
+      <button class="mobile-menu-btn" data-mobile-menu aria-label="Toggle menu">☰</button>
+      <nav class="main-nav">
+        <a href="reader.html">Bible</a>
+        <a href="journal.html">Journal</a>
+        <a href="favourites.html">Favourites</a>
+        <a href="index.html#email">Devotionals</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head reveal">
+      <div>
+        <h1>📖 Bible Reader</h1>
+        <p>Continue reading from where you left off.</p>
+      </div>
+      <div class="reader-toolbar-controls">
+        <div class="audio-controls">
+          <button class="btn-ghost" id="playChapterAudio" aria-label="Read chapter audio">🔊 Read Chapter</button>
+          <button class="btn-ghost" id="stopChapterAudio" aria-label="Stop chapter audio">⏹ Stop Audio</button>
+        </div>
+        <div class="font-controls">
+        <button id="fontSmall" aria-label="Small font">A</button>
+        <button id="fontMedium" aria-label="Medium font">A</button>
+        <button id="fontLarge" aria-label="Large font">A</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="reader-shell reveal">
+      <aside class="sidebar glass">
+        <div class="sidebar-header">
+          <strong>Book & Chapter</strong>
+        </div>
+        <input id="searchVerse" class="search-input" placeholder="Search verses...">
+        <select id="bookSelect" class="book-select"></select>
+        <div id="chapterGrid" class="chapter-grid"></div>
+      </aside>
+
+      <article class="reader-main glass">
+        <div class="reader-top">
+          <h2 id="currentReference">John - Chapter 1</h2>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="btn-ghost" id="prevChapter">← Previous Chapter</button>
+            <button class="btn-gold" id="nextChapter">Next Chapter →</button>
+          </div>
+        </div>
+        <div id="verseList" class="verse-list"></div>
+        <div class="progress-wrap">
+          <p style="font-size:0.9rem;color:var(--color-muted);">Reading progress</p>
+          <div class="progress-bar"><span id="chapterProgress"></span></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <aside class="ai-panel" id="aiPanel">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:0.8rem;">
+      <h3>💡 AI Verse Insight</h3>
+      <button class="btn-ghost" id="aiClose">Close</button>
+    </div>
+    <pre id="aiBody" style="white-space:pre-wrap;margin-top:0.8rem;"></pre>
+  </aside>
+
+  <script type="module" src="assets/js/bible-page.js"></script>
+</body>
+</html>

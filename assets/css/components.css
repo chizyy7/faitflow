@@ -1,0 +1,221 @@
+.feature-card,
+.testimonial-card,
+.prayer-card,
+.favourite-card,
+.step-card {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: rgba(12, 19, 33, 0.66);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.feature-card:hover,
+.testimonial-card:hover,
+.prayer-card:hover,
+.favourite-card:hover,
+.step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: var(--glow-gold);
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card h3,
+.testimonial-card h3,
+.step-card h3 {
+  margin-bottom: 0.45rem;
+}
+
+.feature-card p,
+.testimonial-card p,
+.step-card p {
+  color: var(--color-text);
+  opacity: 0.9;
+}
+
+.step-number {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+}
+
+.verse {
+  padding: 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.verse:hover {
+  background: rgba(201, 168, 76, 0.08);
+  border-left-color: var(--color-gold);
+}
+
+.verse.active {
+  background: rgba(201, 168, 76, 0.14);
+  border-left-color: var(--color-gold);
+}
+
+.verse-number {
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  vertical-align: super;
+  margin-right: 0.35rem;
+  font-family: var(--font-ui);
+}
+
+.verse-action-bar {
+  margin-top: 0.45rem;
+  display: none;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.verse.active .verse-action-bar {
+  display: flex;
+}
+
+.chip-btn {
+  min-height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  padding: 0.25rem 0.65rem;
+  background: rgba(201, 168, 76, 0.08);
+  color: var(--color-gold-light);
+  font-family: var(--font-ui);
+  cursor: pointer;
+}
+
+.chip-btn:hover {
+  box-shadow: var(--glow-gold);
+}
+
+.ai-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: min(380px, 100vw);
+  padding: 1rem;
+  border-left: 1px solid var(--color-border);
+  background: rgba(9, 14, 28, 0.97);
+  transform: translateX(100%);
+  transition: transform var(--transition);
+  z-index: 60;
+  overflow-y: auto;
+}
+
+.ai-panel.open {
+  transform: translateX(0);
+}
+
+.badge {
+  display: inline-flex;
+  border: 1px solid var(--color-border);
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-family: var(--font-ui);
+}
+
+.badge.pending {
+  color: var(--color-gold-light);
+}
+
+.badge.answered {
+  color: var(--color-success);
+  border-color: rgba(76, 175, 80, 0.4);
+}
+
+.stats-bar {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.stats-item {
+  min-width: 130px;
+  padding: 0.6rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: rgba(15, 21, 37, 0.7);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(201, 168, 76, 0.15);
+  overflow: hidden;
+}
+
+.progress-bar > span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+}
+
+.email-form .btn-gold {
+  width: 100%;
+}
+
+.toast {
+  font-family: var(--font-ui);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 8, 18, 0.72);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 70;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-card {
+  width: min(560px, 92vw);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: rgba(11, 18, 32, 0.95);
+}
+
+.modal-grid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.modal-grid input,
+.modal-grid textarea {
+  min-height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: rgba(2, 8, 16, 0.55);
+  color: var(--color-text);
+  padding: 0.6rem 0.75rem;
+}
+
+.modal-grid textarea {
+  min-height: 120px;
+}

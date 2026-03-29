@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FaithFlow Favourites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/reader.css">
+</head>
+<body>
+  <header class="site-header glass container">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Faith<span class="highlight">Flow</span></a>
+      <button class="mobile-menu-btn" data-mobile-menu aria-label="Toggle menu">☰</button>
+      <nav class="main-nav">
+        <a href="reader.html">Bible</a>
+        <a href="journal.html">Journal</a>
+        <a href="favourites.html">Favourites</a>
+        <a href="index.html#email">Devotionals</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head reveal">
+      <div>
+        <h1>⭐ My Favourite Verses</h1>
+        <p>The verses God has spoken to your heart.</p>
+      </div>
+      <p id="verseCount" class="badge pending">0 verses saved</p>
+    </section>
+
+    <section class="section reveal">
+      <div id="favouritesList" class="card-grid"></div>
+    </section>
+  </main>
+
+  <script type="module" src="assets/js/favourites-page.js"></script>
+</body>
+</html>

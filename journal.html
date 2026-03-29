@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FaithFlow Prayer Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/reader.css">
+</head>
+<body>
+  <header class="site-header glass container">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Faith<span class="highlight">Flow</span></a>
+      <button class="mobile-menu-btn" data-mobile-menu aria-label="Toggle menu">☰</button>
+      <nav class="main-nav">
+        <a href="reader.html">Bible</a>
+        <a href="journal.html">Journal</a>
+        <a href="favourites.html">Favourites</a>
+        <a href="index.html#email">Devotionals</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head reveal">
+      <div>
+        <h1>🙏 My Prayer Journal</h1>
+        <p>A record of your conversations with God.</p>
+        <div class="stats-bar">
+          <div class="stats-item"><small>Total Prayers</small><h3 id="statTotal">0</h3></div>
+          <div class="stats-item"><small>Answered</small><h3 id="statAnswered">0</h3></div>
+          <div class="stats-item"><small>Pending</small><h3 id="statPending">0</h3></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <button class="btn-gold" id="newPrayerBtn">New Prayer</button>
+        <button class="btn-ghost" id="exportBtn">Export My Prayers 📄</button>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+        <button class="chip-btn active" data-filter="all">All</button>
+        <button class="chip-btn" data-filter="unanswered">Unanswered</button>
+        <button class="chip-btn" data-filter="answered">Answered</button>
+      </div>
+      <div id="journalList" class="card-grid"></div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="prayerModal">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h2>New Prayer</h2>
+        <button id="closeModal" class="btn-ghost">Close</button>
+      </div>
+      <form id="prayerForm" class="modal-grid" style="margin-top:0.8rem;">
+        <input type="text" name="title" placeholder="Prayer Title" required>
+        <input type="text" name="verse" placeholder="Bible Verse (e.g., Psalm 23:1)">
+        <textarea name="prayer" placeholder="My Prayer" required></textarea>
+        <button class="btn-gold" type="submit">Save Prayer 🙏</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/journal-page.js"></script>
+</body>
+</html>
