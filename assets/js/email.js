@@ -1,26 +1,32 @@
-const N8N_WEBHOOK = 'YOUR_N8N_WEBHOOK_URL_HERE';
+const FORMSPREE_URL = 'https://formspree.io/f/xbdpzbww';
 
 export async function subscribe(name, email) {
+  // Check for duplicate submission
   if (localStorage.getItem('faithflow_subscribed')) {
     return { success: false, reason: 'already_subscribed' };
   }
 
   try {
-    if (N8N_WEBHOOK !== 'YOUR_N8N_WEBHOOK_URL_HERE') {
-      await fetch(N8N_WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name,
-          email,
-          timestamp: new Date().toISOString(),
-          source: 'faithflow_landing'
-        })
-      });
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('source', 'faithflow_landing');
+    formData.append('timestamp', new Date().toISOString());
+
+    const res = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      localStorage.setItem('faithflow_subscribed', email);
+      return { success: true };
     }
-    localStorage.setItem('faithflow_subscribed', email);
-    return { success: true };
+    return { success: false, reason: 'server_error' };
+
   } catch (err) {
+    console.error('Subscription error:', err);
     return { success: false, reason: 'network_error' };
   }
 }
